@@ -1,3 +1,5 @@
+const { connect } = require('http2');
+const inquirer = require('inquirer');
 const mysql = require('mysql');
 const util = require('util');
 
@@ -15,6 +17,9 @@ const connection = mysql.createConnection({
   password: 'Elacg1996!',
   database: 'employee_db',
 });
+connection.connect();
+// 
+
 connection.query = util.promisify(connection.query)
 
 module.exports = connection;
